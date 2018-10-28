@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace Sample { 
 public class myLogica : MonoBehaviour {
     public OnClick[] myButtons;
     public List<int> colorList;
 
     public float showTime = 0.5f;
-    public float pauseTime = 0.5f;
+    public float pauseTime = 0.2f;
 
     bool maquina = false;
    public bool player = false;
@@ -79,7 +80,7 @@ public class myLogica : MonoBehaviour {
                 myRandom = Random.Range(0, myButtons.Length);
                 colorList.Add(myRandom);
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
             myButtons[colorList[i]].ClickedColor();
             myButtons[colorList[i]].mySound.Play();
             yield return new WaitForSeconds(showTime);
@@ -95,4 +96,5 @@ public class myLogica : MonoBehaviour {
         maquina = false;
         gameO = true;
     }
+}
 }
